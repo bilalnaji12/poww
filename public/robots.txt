@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pawmade-site.pawmade.workers.dev/sitemap.xml
