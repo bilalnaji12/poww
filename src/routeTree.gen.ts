@@ -10,11 +10,23 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CatWoodenPuzzleRouteImport } from './routes/cat-wooden-puzzle'
+import { Route as DogWoodenPuzzleRouteImport } from './routes/dog-wooden-puzzle'
 import { Route as GoProductRouteImport } from './routes/go.$product'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatWoodenPuzzleRoute = CatWoodenPuzzleRouteImport.update({
+  id: '/cat-wooden-puzzle',
+  path: '/cat-wooden-puzzle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DogWoodenPuzzleRoute = DogWoodenPuzzleRouteImport.update({
+  id: '/dog-wooden-puzzle',
+  path: '/dog-wooden-puzzle',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GoProductRoute = GoProductRouteImport.update({
@@ -25,27 +37,40 @@ const GoProductRoute = GoProductRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
   '/go/$product': typeof GoProductRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
   '/go/$product': typeof GoProductRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
   '/go/$product': typeof GoProductRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/go/$product'
+  fullPaths: '/' | '/cat-wooden-puzzle' | '/dog-wooden-puzzle' | '/go/$product'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/go/$product'
-  id: '__root__' | '/' | '/go/$product'
+  to: '/' | '/cat-wooden-puzzle' | '/dog-wooden-puzzle' | '/go/$product'
+  id:
+    | '__root__'
+    | '/'
+    | '/cat-wooden-puzzle'
+    | '/dog-wooden-puzzle'
+    | '/go/$product'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CatWoodenPuzzleRoute: typeof CatWoodenPuzzleRoute
+  DogWoodenPuzzleRoute: typeof DogWoodenPuzzleRoute
   GoProductRoute: typeof GoProductRoute
 }
 
@@ -56,6 +81,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cat-wooden-puzzle': {
+      id: '/cat-wooden-puzzle'
+      path: '/cat-wooden-puzzle'
+      fullPath: '/cat-wooden-puzzle'
+      preLoaderRoute: typeof CatWoodenPuzzleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dog-wooden-puzzle': {
+      id: '/dog-wooden-puzzle'
+      path: '/dog-wooden-puzzle'
+      fullPath: '/dog-wooden-puzzle'
+      preLoaderRoute: typeof DogWoodenPuzzleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/go/$product': {
@@ -70,6 +109,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CatWoodenPuzzleRoute: CatWoodenPuzzleRoute,
+  DogWoodenPuzzleRoute: DogWoodenPuzzleRoute,
   GoProductRoute: GoProductRoute,
 }
 export const routeTree = rootRouteImport
