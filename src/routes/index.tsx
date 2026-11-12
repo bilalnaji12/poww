@@ -115,7 +115,7 @@ function Index() {
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Two playful wooden puzzle ideas, picked for the people who love cats and dogs.
+              Three playful wooden puzzle ideas, picked for the people who love cats and dogs.
             </p>
           </div>
           <div className="grid min-w-0 gap-4 md:grid-cols-2 md:gap-5">

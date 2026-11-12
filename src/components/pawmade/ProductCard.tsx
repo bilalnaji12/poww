@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check, PawPrint, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "@tanstack/react-router";
 
 export type Product = {
   label: string;
@@ -11,6 +12,7 @@ export type Product = {
   imageAlt: string;
   background: string;
   link: string;
+  path: "/cat-wooden-puzzle" | "/dog-wooden-puzzle" | "/christmas-cat-wooden-jigsaw-puzzle";
   kind: "cat" | "dog";
 };
 
@@ -50,7 +52,7 @@ export function ProductCard({ product }: { product: Product }) {
           <BadgeIcon className="size-3.5" aria-hidden="true" /> {product.label}
         </span>
         <h3 className="mt-4 text-[30px] font-semibold leading-none tracking-[-0.05em] sm:text-[34px]">
-          {product.name}
+          <Link to={product.path}>{product.name}</Link>
         </h3>
         <p className="mt-2 text-sm font-semibold text-foreground/75 sm:text-base">
           {product.subtitle}

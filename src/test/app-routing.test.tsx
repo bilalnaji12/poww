@@ -14,4 +14,16 @@ describe("App routing", () => {
 
     expect(matches.at(-1)?.routeId).not.toBe(rootRouteId);
   });
+  it.each([
+    ["/cat-wooden-puzzle/", "/cat-wooden-puzzle"],
+    ["/dog-wooden-puzzle/", "/dog-wooden-puzzle"],
+    ["/christmas-cat-wooden-jigsaw-puzzle/", "/christmas-cat-wooden-jigsaw-puzzle"],
+  ])("matches the product page at %s", (path, routeId) => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes(path).at(-1)?.routeId).toBe(routeId);
+  });
+  it("no longer matches an intermediary waiting page", () => {
+    const router = createRouter({ routeTree, context: { queryClient: new QueryClient() } });
+    expect(router.matchRoutes("/go/cat").at(-1)?.routeId).toBe(rootRouteId);
+  });
 });

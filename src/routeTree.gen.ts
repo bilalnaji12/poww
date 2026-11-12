@@ -11,8 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatWoodenPuzzleRouteImport } from './routes/cat-wooden-puzzle'
+import { Route as ChristmasCatWoodenJigsawPuzzleRouteImport } from './routes/christmas-cat-wooden-jigsaw-puzzle'
 import { Route as DogWoodenPuzzleRouteImport } from './routes/dog-wooden-puzzle'
-import { Route as GoProductRouteImport } from './routes/go.$product'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -24,54 +24,63 @@ const CatWoodenPuzzleRoute = CatWoodenPuzzleRouteImport.update({
   path: '/cat-wooden-puzzle',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChristmasCatWoodenJigsawPuzzleRoute =
+  ChristmasCatWoodenJigsawPuzzleRouteImport.update({
+    id: '/christmas-cat-wooden-jigsaw-puzzle',
+    path: '/christmas-cat-wooden-jigsaw-puzzle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const DogWoodenPuzzleRoute = DogWoodenPuzzleRouteImport.update({
   id: '/dog-wooden-puzzle',
   path: '/dog-wooden-puzzle',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GoProductRoute = GoProductRouteImport.update({
-  id: '/go/$product',
-  path: '/go/$product',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
-  '/go/$product': typeof GoProductRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
-  '/go/$product': typeof GoProductRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
+  '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
-  '/go/$product': typeof GoProductRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cat-wooden-puzzle' | '/dog-wooden-puzzle' | '/go/$product'
+  fullPaths:
+    | '/'
+    | '/cat-wooden-puzzle'
+    | '/christmas-cat-wooden-jigsaw-puzzle'
+    | '/dog-wooden-puzzle'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cat-wooden-puzzle' | '/dog-wooden-puzzle' | '/go/$product'
+  to:
+    | '/'
+    | '/cat-wooden-puzzle'
+    | '/christmas-cat-wooden-jigsaw-puzzle'
+    | '/dog-wooden-puzzle'
   id:
     | '__root__'
     | '/'
     | '/cat-wooden-puzzle'
+    | '/christmas-cat-wooden-jigsaw-puzzle'
     | '/dog-wooden-puzzle'
-    | '/go/$product'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CatWoodenPuzzleRoute: typeof CatWoodenPuzzleRoute
+  ChristmasCatWoodenJigsawPuzzleRoute: typeof ChristmasCatWoodenJigsawPuzzleRoute
   DogWoodenPuzzleRoute: typeof DogWoodenPuzzleRoute
-  GoProductRoute: typeof GoProductRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -90,18 +99,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatWoodenPuzzleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/christmas-cat-wooden-jigsaw-puzzle': {
+      id: '/christmas-cat-wooden-jigsaw-puzzle'
+      path: '/christmas-cat-wooden-jigsaw-puzzle'
+      fullPath: '/christmas-cat-wooden-jigsaw-puzzle'
+      preLoaderRoute: typeof ChristmasCatWoodenJigsawPuzzleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dog-wooden-puzzle': {
       id: '/dog-wooden-puzzle'
       path: '/dog-wooden-puzzle'
       fullPath: '/dog-wooden-puzzle'
       preLoaderRoute: typeof DogWoodenPuzzleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/go/$product': {
-      id: '/go/$product'
-      path: '/go/$product'
-      fullPath: '/go/$product'
-      preLoaderRoute: typeof GoProductRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -110,8 +119,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CatWoodenPuzzleRoute: CatWoodenPuzzleRoute,
+  ChristmasCatWoodenJigsawPuzzleRoute: ChristmasCatWoodenJigsawPuzzleRoute,
   DogWoodenPuzzleRoute: DogWoodenPuzzleRoute,
-  GoProductRoute: GoProductRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -20,4 +20,7 @@ export const siteUrl = (process.env.VITE_SITE_URL || "https://pawmade-site.pawma
 
 export const publicRoutes = [
   { path: "/" },
+  { path: "/cat-wooden-puzzle/" },
+  { path: "/dog-wooden-puzzle/" },
+  { path: "/christmas-cat-wooden-jigsaw-puzzle/" },
 ];

@@ -31,3 +31,5 @@ use the editor.
 
 ## Project rules
 - Landing page sections live in `src/components/pawmade/`, composed in `src/routes/index.tsx`; product data is a typed array in the index route so cards stay data-driven.
+- Keep shared product records in `src/lib/products.ts` for home cards and product pages so destinations and content stay consistent.
+- Product purchase buttons link directly to their retailer destinations; product names link to dedicated detail routes so shopping has no intermediary delay page.
