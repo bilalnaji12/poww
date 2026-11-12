@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatWoodenPuzzleRouteImport } from './routes/cat-wooden-puzzle'
 import { Route as ChristmasCatWoodenJigsawPuzzleRouteImport } from './routes/christmas-cat-wooden-jigsaw-puzzle'
 import { Route as DogWoodenPuzzleRouteImport } from './routes/dog-wooden-puzzle'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -35,18 +36,25 @@ const DogWoodenPuzzleRoute = DogWoodenPuzzleRouteImport.update({
   path: '/dog-wooden-puzzle',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
   '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
+  '/privacy': typeof PrivacyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
   '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
+  '/privacy': typeof PrivacyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -54,6 +62,7 @@ export interface FileRoutesById {
   '/cat-wooden-puzzle': typeof CatWoodenPuzzleRoute
   '/christmas-cat-wooden-jigsaw-puzzle': typeof ChristmasCatWoodenJigsawPuzzleRoute
   '/dog-wooden-puzzle': typeof DogWoodenPuzzleRoute
+  '/privacy': typeof PrivacyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -62,18 +71,21 @@ export interface FileRouteTypes {
     | '/cat-wooden-puzzle'
     | '/christmas-cat-wooden-jigsaw-puzzle'
     | '/dog-wooden-puzzle'
+    | '/privacy'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/cat-wooden-puzzle'
     | '/christmas-cat-wooden-jigsaw-puzzle'
     | '/dog-wooden-puzzle'
+    | '/privacy'
   id:
     | '__root__'
     | '/'
     | '/cat-wooden-puzzle'
     | '/christmas-cat-wooden-jigsaw-puzzle'
     | '/dog-wooden-puzzle'
+    | '/privacy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -81,6 +93,7 @@ export interface RootRouteChildren {
   CatWoodenPuzzleRoute: typeof CatWoodenPuzzleRoute
   ChristmasCatWoodenJigsawPuzzleRoute: typeof ChristmasCatWoodenJigsawPuzzleRoute
   DogWoodenPuzzleRoute: typeof DogWoodenPuzzleRoute
+  PrivacyRoute: typeof PrivacyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -113,6 +126,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DogWoodenPuzzleRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -121,6 +141,7 @@ const rootRouteChildren: RootRouteChildren = {
   CatWoodenPuzzleRoute: CatWoodenPuzzleRoute,
   ChristmasCatWoodenJigsawPuzzleRoute: ChristmasCatWoodenJigsawPuzzleRoute,
   DogWoodenPuzzleRoute: DogWoodenPuzzleRoute,
+  PrivacyRoute: PrivacyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

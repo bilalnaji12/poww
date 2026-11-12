@@ -28,6 +28,9 @@ export function Footer() {
           <a href="#about" className="footer-link inline-flex items-center gap-1">
             About <ArrowUpRight className="size-3" aria-hidden="true" />
           </a>
+          <a href="/privacy" className="footer-link">
+            Privacy
+          </a>
         </nav>
         <p className="affiliate-disclosure text-xs leading-relaxed text-muted-foreground md:col-span-2">
           As an Amazon Associate I earn from qualifying purchases. Some links on this page are

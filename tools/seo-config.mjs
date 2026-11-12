@@ -23,4 +23,5 @@ export const publicRoutes = [
   { path: "/cat-wooden-puzzle/" },
   { path: "/dog-wooden-puzzle/" },
   { path: "/christmas-cat-wooden-jigsaw-puzzle/" },
+  { path: "/privacy/" },
 ];
