@@ -2,7 +2,7 @@ import catPuzzle from "@/assets/cat-puzzle.png";
 import cardBgDay from "@/assets/card-bg-day.webp";
 import cardBgEvening from "@/assets/card-bg-evening.webp";
 import dogPuzzle from "@/assets/dog-puzzle.png";
-import christmasPuzzle from "@/assets/christmas-cat-puzzle-updated.png.asset.json";
+import christmasPuzzle from "@/assets/christmas-cat-puzzle.png";
 import type { Product } from "@/components/pawmade/ProductCard";
 
 export const catProduct: Product = {
@@ -40,7 +40,7 @@ export const christmasProduct: Product = {
   subtitle: "Christmas cat-shaped wooden puzzle",
   description: "A festive wooden cat-shaped puzzle filled with Christmas cats, gifts and holiday details.",
   details: "Cat-shaped design · Christmas theme",
-  image: christmasPuzzle.url,
+  image: christmasPuzzle,
   imageAlt: "Christmas Cat Wooden Jigsaw Puzzle with festive cats and gifts",
   background: cardBgDay,
   link: "https://link.amazon/B02F3twCo",
