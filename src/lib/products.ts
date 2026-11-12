@@ -2,7 +2,7 @@ import catPuzzle from "@/assets/cat-puzzle.png";
 import cardBgDay from "@/assets/card-bg-day.webp";
 import cardBgEvening from "@/assets/card-bg-evening.webp";
 import dogPuzzle from "@/assets/dog-puzzle.png";
-import christmasPuzzle from "@/assets/christmas-cat-puzzle.png.asset.json";
+import christmasPuzzle from "@/assets/christmas-cat-puzzle-updated.png.asset.json";
 import type { Product } from "@/components/pawmade/ProductCard";
 
 export const catProduct: Product = {
